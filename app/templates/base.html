@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>{% block title %}{% endblock %}</title>
+    {% block css %}{% endblock %}
+  </head>
+  <body>
+    <header>
+        <a href="{{ url_for('index') }}">Volver al inicio</a>
+    </header>
+  </body>
+  <section class="main-container">
+    {% block content %}{% endblock %} {% block javascript %}{% endblock %}
+  </section>
+</html>

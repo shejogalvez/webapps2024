@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/details.css') }}">
+    <title>Detalles del Producto</title>
+</head>
+<body>
+    <header>
+        <a href="{{ url_for('index') }}">Volver al inicio</a>
+    </header>
+    <div class="flex-container product-info">
+        <div class="flex-child">
+            <h2>Detalles del Producto</h2>
+            <p><strong>Tipo:</strong> Fruta</p>
+            <p><strong>Nombre:</strong> Manzana</p>
+            <p><strong>Descripción:</strong> Una deliciosa manzana roja y jugosa.</p>
+            <p><strong>Región de Origen:</strong> Región Metropolitana</p>
+            <p><strong>Comuna:</strong> Santiago</p>
+            <p><strong>Nombre del Productor:</strong> Juan Pérez</p>
+            <div class="contact-info">
+                <p><strong>Email del Productor:</strong> juan@example.com</p>
+                <p><strong>Celular del Productor:</strong> +56987654321</p>
+            </div>
+        </div>
+        <div class="flex-child">
+            <img id="product-image" 
+            src="https://www.photos-public-domain.com/wp-content/uploads/2010/12/apples-red.jpg" 
+            alt="Manzana"
+            width="640" height="480"
+            onclick="cambiarTamañoImagen()">
+        </div>
+        <script src="{{ url_for('static', filename='js/details.js') }}"></script>
+    </div>
+</body>
+</html>
