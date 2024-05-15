@@ -1,0 +1,24 @@
+{% extends 'form/form_base.html' %} 
+    
+    {% block title %}Agregar producto{% endblock %}
+    {% block h1 %}Agregar producto{% endblock %}
+
+            {% block foto %}
+            <label for="foto_producto" class="label">Foto del producto:</label>
+            <input type="file" id="foto_producto" name="foto_producto" class="input-field">
+            <br><br>
+            {% endblock %}
+            {% block contacto %}
+            <label for="nombre_productor" class="label">Nombre del productor:</label>
+            <input type="text" id="nombre_productor" name="nombre_productor" class="input-field" size="80" maxlength="80">
+            <br><br>
+
+            <label for="email_productor" class="label">Email del productor:</label>
+            <input type="email" id="email_productor" name="email_productor" class="input-field" size="30">
+            <br><br>
+
+            <label for="celular_productor" class="label">Número de celular del productor:</label>
+            <input type="tel" id="celular_productor" name="celular_productor" class="input-field" size="15" placeholder="ej: +56987654321">
+            <br><br>
+            {% endblock %}
+            {% block modal_content %} <p>¿Confirma el registro de este producto?</p> {% endblock %}

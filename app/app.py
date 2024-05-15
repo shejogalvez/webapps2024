@@ -27,14 +27,14 @@ def agregar_producto():
         "regiones" : [{"id": tup[0], "nombre": tup[1]} for tup in db.get_regiones()]
     }
     print(data)
-    return render_template("agregar-producto.html", data=data)
+    return render_template("form/agregar_producto.html", data=data)
 
 @app.route("/agregar-pedido", methods=["GET"])
 def agregar_pedido():
     data = {
         "regiones" : [{"id": tup[0], "nombre": tup[1]} for tup in db.get_regiones()]
     }
-    return render_template("agregar-pedido.html", data=data)
+    return render_template("form/agregar_pedido.html", data=data)
 
 @app.route("/api/get_comunas", methods=["GET"])
 def get_comunas():
@@ -44,19 +44,19 @@ def get_comunas():
 
 @app.route("/detalles-pedido", methods=["GET"])
 def detalles_pedido():
-    return render_template("detalles-pedido.html")
+    return render_template("detalles_pedido.html")
 
 @app.route("/detalles-producto", methods=["GET"])
 def detalles_producto():
-    return render_template("detalles-producto.html")
+    return render_template("detalles_producto.html")
 
 @app.route("/ver-pedidos", methods=["GET"])
 def ver_pedidos():
-    return render_template("ver-pedidos.html")
+    return render_template("ver_pedidos.html")
 
 @app.route("/ver-productos", methods=["GET"])
 def ver_productos():
-    return render_template("ver-productos.html")
+    return render_template("ver_productos.html")
 
 @app.route("/post-prod", methods=["POST"])
 def post_prod():
@@ -105,7 +105,7 @@ def post_prod():
 @app.route("/success", methods=["GET"])
 def success():
     msg = request.args.get("msg")
-    return render_template("form-success.html", successMsg=f"Hemos recibido el registro {msg}. Muchas gracias")
+    return render_template("form_success.html", successMsg=f"Hemos recibido el registro {msg}. Muchas gracias")
 
 if __name__ == "__main__":
     app.run(debug=True)

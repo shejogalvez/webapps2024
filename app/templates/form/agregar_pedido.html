@@ -1,0 +1,24 @@
+{% extends 'form/form_base.html' %} 
+
+{% block title %}Agregar pedido{% endblock %}
+{% block h1 %}Agregar pedido{% endblock %}
+
+            {% block foto %}{% endblock %}
+
+            {% block contacto %}
+            <label for="nombre_productor" class="label">Nombre del comprador:</label>
+            <input type="text" id="nombre_productor" name="nombre_productor" class="input-field" size="80" maxlength="80">
+            <br><br>
+
+            <label for="email_productor" class="label">Email del comprador:</label>
+            <input type="email" id="email_productor" name="email_productor" class="input-field" size="30">
+            <br><br>
+
+            <label for="celular_productor" class="label">Número de celular del comprador:</label>
+            <input type="tel" id="celular_productor" name="celular_productor" class="input-field" size="15" placeholder="ej: +56987654321">
+            <br><br>
+            {% endblock %}
+            
+            {% block modal_content %}
+            <p>¿Confirma el registro de este pedido?</p>
+            {% endblock %}
