@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/form.css') }}">
+    <title>Agregar producto</title>
+</head>
+<body>
+    <header>
+        <a href="{{ url_for('index') }}">Volver al inicio</a>
+    </header>
+    <h1>Agregar producto</h1>
+    <div id="form-container" class="form-container">
+        <form id="agregar-producto-form" action="{{url_for('post_prod')}}" method="post"  enctype="multipart/form-data">
+            <label for="tipo_producto" class="label">Tipo de producto:</label>
+            <select id="tipo_producto" name="tipo_producto" class="select-field" onchange="on_select_tipo()">
+                <!-- Opciones para el tipo de producto -->
+                <option value="" disabled selected>Selecciona un tipo de producto</option> <!-- Default option -->
+                <option value="fruta">Frutas</option>
+                <option value="verdura">Verduras</option>
+                <!-- Agrega más opciones según sea necesario -->
+            </select>
+            <br><br>
+
+            <label class="label">Producto:</label>
+            <p>Productos seleccionados: <span id="selectedValues"></span></p>
+            <div id="producto" name="producto" class="input-field scrollable-div">
+            </div>
+            <br><br>
+
+            <label for="descripcion" class="label">Descripción:</label>
+            <textarea id="descripcion" name="descripcion" rows="4" cols="50"></textarea>
+            <br><br>
+
+            <label for="foto_producto" class="label">Foto del producto:</label>
+            <input type="file" id="foto_producto" name="foto_producto" class="input-field">
+            <br><br>
+
+            <label for="region" class="label">Región:</label>
+            <select id="region" name="region" class="select-field">
+                {% for item in (data.regiones) %}
+                    <option value={{item.id}}> {{item.nombre}} </option>
+                {% endfor %}
+            </select>
+            <br><br>
+
+            <label for="comuna" class="label">Comuna:</label>
+            <select id="comuna" name="comuna" class="select-field">
+            </select>
+            <br><br>
+
+            <label for="nombre_productor" class="label">Nombre del productor:</label>
+            <input type="text" id="nombre_productor" name="nombre_productor" class="input-field" size="80" maxlength="80">
+            <br><br>
+
+            <label for="email_productor" class="label">Email del productor:</label>
+            <input type="email" id="email_productor" name="email_productor" class="input-field" size="30">
+            <br><br>
+
+            <label for="celular_productor" class="label">Número de celular del productor:</label>
+            <input type="tel" id="celular_productor" name="celular_productor" class="input-field" size="15" placeholder="ej: +56987654321">
+            <br><br>
+
+            <input type="button" id="submit-producto-btn" value="Agregar producto" class="btn-submit">
+        </form>
+    </div>
+    <!-- The Modal -->
+    <div id="modal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>¿Confirma el registro de este producto?</p>
+            <div class="flex-container">
+                <button class="btn-submit flex-child" onclick="redirectSuccess()">Sí, confirmo</button>
+                <button class="btn-cancel flex-child" onclick="closeModal()">No, quiero volver al formulario</button>
+            </div>
+            
+        </div>
+
+    </div>
+    
+
+    <script src="{{ url_for('static', filename='js/data.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/validations.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/form.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/modal.js') }}"></script>
+</body>
+
+</html>

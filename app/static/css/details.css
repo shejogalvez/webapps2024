@@ -1,0 +1,69 @@
+/* Estilos opcionales para mejorar la apariencia */
+:root {
+    --black-color: #000022;
+    --background-color: #E8E6F0;
+    --pink-color: #FC2865;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.product-info {
+    margin-bottom: 30px;
+}
+
+.product-info p {
+    margin: 0;
+    padding: 5px 0;
+    overflow: hidden;
+}
+
+.product-info img {
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    object-fit: contain;
+    width: 100px;
+    height: 100px;
+}
+
+.product-info img:hover {
+    transform: scale(1.01);
+}
+
+.contact-info p {
+    margin: 5px 0;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.flex-child {
+    flex: 1;
+}  
+
+.flex-child:first-child {
+    margin-right: 20px;
+} 

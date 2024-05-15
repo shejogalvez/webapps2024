@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+    <title>Index Page</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Indice</h1>
+        <ul>
+            <li><a href="{{url_for('agregar_producto')}}">agregar producto</a></li>
+            <li><a href="{{url_for('ver_productos')}}">ver productos</a></li>
+            <li><a href="{{url_for('agregar_pedido')}}">agregar pedido</a></li>
+            <li><a href="{{url_for('ver_pedidos')}}">ver pedidos</a></li>
+        </ul>
+    </div>
+</body>
+</html>
