@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/list.css') }}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <a href="{{ url_for('index') }}">Volver al inicio</a>
+    </header>
+    <h1>{% block h1 %}{% endblock %}</h1>
+    <table>
+        <thead>
+            <tr>{% block columns %}{% endblock %}
+            </tr>
+        </thead>
+        <tbody class="clickable-table">
+                {% block rows %}{% endblock %}
+            <!-- Agrega más filas según sea necesario -->
+        </tbody>
+    </table>
+
+    <div class="pagination">
+        {% if args.page > 1 %}
+            <a href="{{ url_for(args.template, page=1) }}">First</a>
+            <a href="{{ url_for(args.template, page=args.page-1) }}">Previous</a>
+        {% endif %}
+    
+        {% for p in range(1, args.total_pages+1) %}
+            {% if args.p == args.page %}
+                <a class="active" href="#">{{ p }}</a>
+            {% else %}
+                <a href="{{ url_for(args.template, page=p) }}">{{ p }}</a>
+            {% endif %}
+        {% endfor %}
+    
+        {% if args.page < args.total_pages %}
+            <a href="{{ url_for(args.template, page=args.page+1) }}">Next</a>
+            <a href="{{ url_for(args.template, page=args.total_pages) }}">Last</a>
+        {% endif %}
+    </div>
+
+    <script src="{{ url_for('static', filename='js/list.js') }}"></script>
+</body>
+</html>

@@ -40,6 +40,13 @@ def create_producto(tipo, descripcion, comuna_id, nombre_productor, email_produc
 	conn.commit()
 	return cursor.lastrowid
 
+def get_sorted_productos():
+	conn = get_conn()
+	cursor = conn.cursor()
+	cursor.execute(QUERY_DICT["get_sorted_productos"])
+	productos = cursor.fetchall()
+	return productos
+
 def get_sorted_productos_range(start, size):
 	conn = get_conn()
 	cursor = conn.cursor()
@@ -85,6 +92,13 @@ def get_photos_by_productoID(id):
 	photos = cursor.fetchall()
 	return photos
 
+def get_single_photo_by_productoID(id):
+	conn = get_conn()
+	cursor = conn.cursor()
+	cursor.execute(QUERY_DICT["get_photos_by_productoID"], (id,))
+	photos = cursor.fetchone()
+	return photos
+
 	# -- extra --
 def get_lastID():
 	conn = get_conn()
@@ -120,10 +134,30 @@ def get_comunas():
 def get_comunas_by_regionID(id):
 	conn = get_conn()
 	cursor = conn.cursor()
-	print(QUERY_DICT["get_comunas_by_regionID"])
 	cursor.execute(QUERY_DICT["get_comunas_by_regionID"], (id,))
 	user = cursor.fetchall()
 	return user
+
+def get_comuna_by_id(id):
+	conn = get_conn()
+	cursor = conn.cursor()
+	cursor.execute(QUERY_DICT["get_comuna_by_id"], (id,))
+	user = cursor.fetchone()
+	return user
+
+def get_region_by_comunaID(id):
+	conn = get_conn()
+	cursor = conn.cursor()
+	cursor.execute(QUERY_DICT["get_region_by_comunaID"], (id,))
+	nombre_region = cursor.fetchone()
+	return nombre_region
+
+def count_productos():
+	conn = get_conn()
+	cursor = conn.cursor()
+	cursor.execute(QUERY_DICT["count_productos"], )
+	count = cursor.fetchone()
+	return count
 # -- db-related functions --
 
 

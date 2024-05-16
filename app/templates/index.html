@@ -11,9 +11,9 @@
         <h1>Indice</h1>
         <ul>
             <li><a href="{{url_for('agregar_producto')}}">agregar producto</a></li>
-            <li><a href="{{url_for('ver_productos')}}">ver productos</a></li>
+            <li><a href="{{url_for('ver_productos', page=1)}}">ver productos</a></li>
             <li><a href="{{url_for('agregar_pedido')}}">agregar pedido</a></li>
-            <li><a href="{{url_for('ver_pedidos')}}">ver pedidos</a></li>
+            <li><a href="{{url_for('ver_pedidos', page=1)}}">ver pedidos</a></li>
         </ul>
     </div>
 </body>

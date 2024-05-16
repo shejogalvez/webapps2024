@@ -1,9 +1,9 @@
 {
-    "get_producto_by_id": "SELECT id, username, email, password FROM usuarios WHERE id=%s;",
+    "get_producto_by_id": "SELECT id, tipo, descripcion, comuna_id, nombre_productor, email_productor, celular_productor FROM producto WHERE id=%s;",
     "create_producto": "INSERT INTO producto (tipo, descripcion, comuna_id, nombre_productor, email_productor, celular_productor) VALUES (%s,%s,%s,%s,%s,%s)",
     "get_sorted_productos": "SELECT id, tipo, descripcion, comuna_id, nombre_productor, email_productor, celular_productor FROM producto ORDER BY id DESC",
-    "get_sorted_productos_range": "SELECT id, tipo, descripcion, comuna_id, nombre_productor, email_productor, celular_productor FROM producto ORDER BY id DESC LIMIT %s, &s",
-    "get_productos_comuna_range": "SELECT PRO.id, PRO.tipo, PRO.descripcion, COM.nombre, PRO.nombre_productor, PRO.email_productor, PRO.celular_productor FROM producto PRO, comuna COM WHERE PRO.comuna_id = COM.id ORDER BY id DESC LIMIT 5, 5",
+    "get_sorted_productos_range": "SELECT id, tipo, descripcion, comuna_id, nombre_productor, email_productor, celular_productor FROM producto ORDER BY id DESC LIMIT %s, %s",
+    "get_productos_comuna_range": "SELECT PRO.id, PRO.tipo, PRO.descripcion, COM.nombre, PRO.nombre_productor, PRO.email_productor, PRO.celular_productor FROM producto PRO, comuna COM WHERE PRO.comuna_id = COM.id ORDER BY id DESC LIMIT %s, %s",
     "insert_fruta_verdura_to_producto": "INSERT INTO producto_verdura_fruta (producto_id, tipo_verdura_fruta_id) VALUES (%s,%s)",
     "get_fruta_verdura_by_productoID": "SELECT TVF.nombre FROM tipo_verdura_fruta TVF, producto_verdura_fruta PVF WHERE TVF.id=PVF.tipo_verdura_fruta_id AND PVF.producto_id=%s",
     "insert_photo_to_producto": "INSERT INTO foto (ruta_archivo, nombre_archivo, producto_id) VALUES (%s,%s,%s)",
@@ -13,5 +13,9 @@
     "get_fruta_verduras_by_name": "SELECT id FROM tipo_verdura_fruta WHERE nombre=%s",
     "get_regiones": "SELECT * FROM region",
     "get_comunas_by_regionID": "SELECT id, nombre FROM comuna WHERE region_id=%s",
-    "get_comunas": "SELECT * FROM comuna"
+    "get_comunas": "SELECT * FROM comuna",
+    "get_comuna_by_id": "SELECT region_id, nombre FROM comuna WHERE id=%s",
+    "get_region_by_comunaID": "SELECT R.nombre FROM region R, comuna C WHERE C.id=%s AND R.id=C.region_id",
+    "count_productos": "SELECT COUNT(*) FROM producto"
+
 }

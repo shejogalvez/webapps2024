@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/details.css') }}">
+    <title>Detalles del Producto</title>
+</head>
+<body>
+    <header>
+        <a href="{{ url_for('index') }}">Volver al inicio</a>
+    </header>
+    <div class="flex-container product-info">
+        <div class="flex-child">
+            <!-- id, tipo, descripcion, comuna_id, nombre_productor, email_productor, celular_productor -->
+            <h2>Detalles del Producto</h2>
+            <p><strong>Tipo:</strong> {{producto[1]}}</p>
+            <p><strong>Nombre:</strong> {% for FV in fv %} {{FV[0]}}, {% endfor %} </p>
+            <p><strong>Descripción:</strong> {{producto[2]}}</p>
+            <p><strong>Región de Origen:</strong> {{region}}</p>
+            <p><strong>Comuna:</strong> {{comuna}}</p>
+            <p><strong>Nombre del Productor:</strong> {{producto[4]}}</p>
+            <div class="contact-info">
+                <p><strong>Email del Productor:</strong> {{producto[5]}}</p>
+                <p><strong>Celular del Productor:</strong> {{producto[6]}}</p>
+            </div>
+        </div>
+        {% for photo in photos %}
+        <div class="flex-child">
+            <img id="product-image" 
+            src={{url_for("display_image", filename=photo[1])}}
+            alt="Manzana"
+            style="width:640px; height:480px" 
+            onclick="cambiarTamañoImagen()">
+        </div>
+        {% endfor %}
+        <script src="{{ url_for('static', filename='js/details.js') }}"></script>
+    </div>
+</body>
+</html>

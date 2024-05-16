@@ -1,0 +1,29 @@
+{% extends 'list/list_base.html' %} 
+
+{% block title %}
+Listado de productos
+{% endblock %}
+
+{% block h1 %}
+Listado de productos
+{% endblock %}
+
+{% block columns %}
+<th>Tipo de producto</th>
+<th>Productos</th>
+<th>Región</th>
+<th>Comuna</th>
+<th>Foto</th>
+{% endblock %}
+
+{% block rows %}
+    {% for item in args.data %}
+        <tr onclick="toDetalles('{{args.detallesURL}}', {{item.id}})">
+            <td>{{item.tipo}}</td>
+            <td>{% for FV in item.fruta_verdura %}{{FV[0]}}, {% endfor %}</td>
+            <td>{{item.region}}</td>
+            <td>{{item.comuna}}</td>
+            <td><img src={{url_for("display_image", filename=item.fotosrc)}} alt="Foto de los productos"></td>
+        </tr>
+    {% endfor %}
+{% endblock %}

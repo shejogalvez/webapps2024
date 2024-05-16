@@ -42,6 +42,8 @@ td img {
 table {
     width: 100%;
     border-collapse: collapse;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 th, td {
     padding: 8px;
@@ -55,3 +57,21 @@ th {
 td img {
     align-self: self-start;
 }
+
+.pagination {
+    display: inline-block;
+}
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+}
+.pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+}
+.pagination a:hover:not(.active) {background-color: #ddd;}
