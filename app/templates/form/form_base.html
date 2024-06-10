@@ -12,7 +12,7 @@
     </header>
     <h1>{% block h1 %}{% endblock %}</h1>
     <div id="form-container" class="form-container">
-        <form id="agregar-producto-form" action="{{url_for('post_prod')}}" method="post"  enctype="multipart/form-data">
+        {% block form_tag %}{% endblock %} 
             <label for="tipo_producto" class="label">Tipo de producto:</label>
             <select id="tipo_producto" name="tipo_producto" class="select-field" onchange="on_select_tipo()">
                 <!-- Opciones para el tipo de producto -->

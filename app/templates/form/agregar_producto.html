@@ -3,6 +3,8 @@
     {% block title %}Agregar producto{% endblock %}
     {% block h1 %}Agregar producto{% endblock %}
 
+    {% block form_tag %} <form id="agregar-producto-form" action="{{url_for('post_prod')}}" method="post"  enctype="multipart/form-data">{% endblock %}
+
             {% block foto %}
             <label for="foto_producto" class="label">Foto del producto:</label>
             <input type="file" id="foto_producto" multiple="multiple" name="foto_producto" class="input-field">

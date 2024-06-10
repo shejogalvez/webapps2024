@@ -3,6 +3,8 @@
 {% block title %}Agregar pedido{% endblock %}
 {% block h1 %}Agregar pedido{% endblock %}
 
+{% block form_tag %} <form id="agregar-producto-form" action="{{url_for('post_pedido')}}" method="post" >{% endblock %}
+
             {% block foto %}{% endblock %}
 
             {% block contacto %}
