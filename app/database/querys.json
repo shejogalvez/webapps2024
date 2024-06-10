@@ -10,12 +10,17 @@
     "get_photos_by_productoID": "SELECT ruta_archivo, nombre_archivo FROM foto WHERE producto_id=%s",
     "get_lastID": "SELECT LAST_INSERT_ID()",
 
+    "create_pedido": "INSERT INTO pedido (tipo, descripcion, comuna_id, nombre_comprador, email_comprador, celular_comprador) VALUES (%s,%s,%s,%s,%s,%s)",
+    "insert_fruta_verdura_to_pedido": "INSERT INTO pedido_verdura_fruta (pedido_id, tipo_verdura_fruta_id) VALUES (%s,%s)",
+    "get_sorted_pedidos_range": "SELECT id, tipo, descripcion, comuna_id, nombre_comprador, email_comprador, celular_comprador FROM pedido ORDER BY id DESC LIMIT %s, %s",
+
     "get_fruta_verduras_by_name": "SELECT id FROM tipo_verdura_fruta WHERE nombre=%s",
     "get_regiones": "SELECT * FROM region",
     "get_comunas_by_regionID": "SELECT id, nombre FROM comuna WHERE region_id=%s",
     "get_comunas": "SELECT * FROM comuna",
     "get_comuna_by_id": "SELECT region_id, nombre FROM comuna WHERE id=%s",
     "get_region_by_comunaID": "SELECT R.nombre FROM region R, comuna C WHERE C.id=%s AND R.id=C.region_id",
-    "count_productos": "SELECT COUNT(*) FROM producto"
+    "count_productos": "SELECT COUNT(*) FROM producto",
+    "count_pedidos": "SELECT COUNT(*) FROM pedido"
 
 }

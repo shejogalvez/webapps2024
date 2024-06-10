@@ -40,6 +40,13 @@ def create_producto(tipo, descripcion, comuna_id, nombre_productor, email_produc
 	conn.commit()
 	return cursor.lastrowid
 
+def create_pedido(tipo, descripcion, comuna_id, nombre_comprador, email_comprador, celular_comprador):
+	conn = get_conn()
+	cursor = conn.cursor()
+	cursor.execute(QUERY_DICT["create_pedido"], (tipo, descripcion, comuna_id, nombre_comprador, email_comprador, celular_comprador))
+	conn.commit()
+	return cursor.lastrowid
+
 def get_sorted_productos():
 	conn = get_conn()
 	cursor = conn.cursor()
@@ -51,6 +58,13 @@ def get_sorted_productos_range(start, size):
 	conn = get_conn()
 	cursor = conn.cursor()
 	cursor.execute(QUERY_DICT["get_sorted_productos_range"], (start, size))
+	productos = cursor.fetchall()
+	return productos
+
+def get_sorted_pedidos_range(start, size):
+	conn = get_conn()
+	cursor = conn.cursor()
+	cursor.execute(QUERY_DICT["get_sorted_pedidos_range"], (start, size))
 	productos = cursor.fetchall()
 	return productos
 
@@ -67,6 +81,12 @@ def insert_fruta_verdura_to_producto(producto_id, tipo_verdura_fruta_id):
 	conn = get_conn()
 	cursor = conn.cursor()
 	cursor.execute(QUERY_DICT["insert_fruta_verdura_to_producto"], (producto_id, tipo_verdura_fruta_id))
+	conn.commit()
+
+def insert_fruta_verdura_to_pedido(pedido_id, tipo_verdura_fruta_id):
+	conn = get_conn()
+	cursor = conn.cursor()
+	cursor.execute(QUERY_DICT["insert_fruta_verdura_to_pedido"], (pedido_id, tipo_verdura_fruta_id))
 	conn.commit()
 
 def get_fruta_verdura_by_productoID(id):
@@ -160,4 +180,11 @@ def count_productos():
 	return count
 # -- db-related functions --
 
+def count_pedidos():
+	conn = get_conn()
+	cursor = conn.cursor()
+	cursor.execute(QUERY_DICT["count_pedidos"], )
+	count = cursor.fetchone()
+	return count
+# -- db-related functions --
 
